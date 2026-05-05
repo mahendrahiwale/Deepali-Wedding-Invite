@@ -956,9 +956,14 @@ function enterSite(){
     window.scrollTo(0,0);
 
     // STEP 4 — play music
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.5;
-    music.play().catch(() => {});
+const music = document.getElementById("bgMusic");
+
+if (music.currentTime === 0) {
+    music.currentTime = 23.2;   // start point
+}
+
+music.volume = 0.5;
+music.play().catch(() => {});
 document.getElementById("musicToggle").style.display = "flex";
 }
 window.unlocked = false;
